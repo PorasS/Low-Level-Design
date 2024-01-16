@@ -7,18 +7,18 @@ public class Client {
         context.put("a", 4);
         context.put("b", 2);
 
-        MultiplyNonTerminalExpression multiplyExpression = new MultiplyNonTerminalExpression(
-                new NumberTerminalExpression("a"), new NumberTerminalExpression("b"));
+        BinaryNonTerminalExpression multiplyExpression = new BinaryNonTerminalExpression(
+                new NumberTerminalExpression("a"), new NumberTerminalExpression("b"), '*');
 
         System.out.println(multiplyExpression.interpret(context));
 
         context.put("c", 6);
         context.put("d", 5);
 
-        SumNonTerminalExpression sumExpression = new SumNonTerminalExpression(new MultiplyNonTerminalExpression(
-                new NumberTerminalExpression("a"), new NumberTerminalExpression("b")),
-                new MultiplyNonTerminalExpression(new NumberTerminalExpression("c"),
-                        new NumberTerminalExpression("d")));
+        BinaryNonTerminalExpression sumExpression = new BinaryNonTerminalExpression(new BinaryNonTerminalExpression(
+                new NumberTerminalExpression("a"), new NumberTerminalExpression("b"), '+'),
+                new BinaryNonTerminalExpression(new NumberTerminalExpression("c"),
+                        new NumberTerminalExpression("d"), '*'), '+');
 
         System.out.println(sumExpression.interpret(context));
     }
