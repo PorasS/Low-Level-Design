@@ -110,6 +110,6 @@ public class TicTacToeGame {
             }
         }
 
-        return colMatch || diagonalMatch || antiDiagonalMatch;
+        return colMatch || diagonalMatch || antiDiagonalMatch || rowMatch;
     }
 }
