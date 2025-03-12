@@ -16,7 +16,10 @@ public class Pattern7 {
     // then will print the space again
 
     public static void main(String[] args) {
-        int n = 5;
+        print(5);
+    }
+
+    public static void print(int n){
 
         for(int i = 0; i < n; i++){
             //print space
